@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+public class Complexdemo {
+public static void main(String[] args) {
+	Scanner scanner= new Scanner(System.in);
+	System.out.println("enter value of real part of a");
+	int d= scanner.nextInt();//reads real part of a into d
+	System.out.println("enter value of complex part of a");	
+	int c= scanner.nextInt();//Reads complex part of a into c
+	Complex a = new Complex(d,c);//sends values to the new a construct 
+	System.out.println("enter value of real part of b");
+	d= scanner.nextInt();//reads real part of b into d
+	System.out.println("enter value of complex part of b");	
+	c= scanner.nextInt();//reads complex part of b into c
+	Complex b = new Complex(d,c);//sends values to the new b construct
+	System.out.println(a);//gives value of a as a string using method toString
+	System.out.println(b);//gives value of b as a string using method toString
+	Complex r = new Complex();//creates a new construct to save the addition or multiplication 
+	r.addition(a, b);//sends values of a and b into method addition
+	System.out.println(r);//Gives value of r using toString method
+	r.multiplication(a, b);//sends values of a and b into method multiplication
+	System.out.println(r);//gives value of r using toString method
+	scanner.close();//closes scanner 
+}}
+class Complex {
+	
+private int r;
+private int c;
+public Complex(int a,int b){
+	this.r=a;
+	this.c=b;
+}//saves the values of real and complex part of a construct 
+public Complex() {
+	this.r=0;
+	this.c=0;
+}//gives them 0 value if no value was sent 
+public int R() {
+	return r;
+}//return real value if needed use name.R();
+public int C() {
+	return c;
+}//return complex value if needed use name.C();
+public void addition(Complex a,Complex b) {
+	c=a.c+b.c;
+	r=a.r+b.r;
+}//adds values of both constructs and saves them in the new one 
+public void multiplication(Complex a,Complex b) {
+	r=(a.r*b.r)-(a.c*b.c);
+	c=(a.r*b.c)+(b.r*a.c);
+}//multiplies values of both constructs and saves them in the new one
+public String toString() {
+if(c<0){
+    return"c="+r+"-"+c+"i";
+}else{
+    return "c="+r+"+"+c+"i";}
+}//returns the values of the construct as a string if needed
+
+
+}
